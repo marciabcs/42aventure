@@ -1,0 +1,9 @@
+
+<- Vertex ----------------------------------------------------------------------
+The Vertex creates a point with color information
+
+Add as new Vertex (array('x' => x, 'y' => y, 'z' => z, 'color' => color));
+The color is facultative, if you don't enter it the default color is 'white'
+
+color is generated with the cass Color (see Documentation)
+---------------------------------------------------------------------- Vertex ->

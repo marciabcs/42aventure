@@ -1,0 +1,16 @@
+; -------------
+; sample.avm -
+; -------------
+
+push int32(42)  ;test comments
+push int32(33)  ;encore
+add 
+push float(44.55)
+mul
+;mult
+push double(42.42)
+push int32(42)
+dump
+pop
+assert double(42.42)
+exit

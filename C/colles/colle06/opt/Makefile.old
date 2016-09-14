@@ -1,0 +1,78 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mouaret <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/12/07 16:38:36 by mouaret           #+#    #+#              #
+#    Updated: 2016/02/02 20:40:45 by mouaret          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = eval_expr
+
+SRC = ft_utils.c ft_pile.c eval_expr.c ft_doop.c ft_stack_pop_operand.c	\
+	  ft_stack_pop_operator.c ft_stack_push_operand.c ft_ope.c	\
+	  ../opt/ft_putchar.c ft_stack_push_operator.c ft_translator_expr.c main.c
+
+SRC2 = ft_utils.c ft_pile.c eval_expr.c ft_doop.c ft_stack_pop_operand.c	\
+	  ft_stack_pop_operator.c ft_stack_push_operand.c ft_ope.c	\
+	  ft_stack_push_operator.c ft_translator_expr.c main.c
+
+HEADERS = ft_utils.h ft_pile.h ft_doop.h		\
+
+OBJS = $(SRC:.c=.o)
+
+OPTIONS = -Wall -Werror -Wextra
+
+all:	$(NAME)
+
+$(NAME): $(SRC) $(HEADERS)
+	#@gcc -c $(OPTIONS) $(SRC) -I$(HEADERS)
+	gcc $(OPTIONS) -o $(NAME) $(SRC) 
+
+clean:
+	@rm -f $(OBJS)
+
+fclean:	clean
+	@rm -f $(NAME)
+
+re:	fclean	all
+
+norm:
+	@norminette $(SRC)
+
+eval2:
+	gcc $(OPTIONS) -o eval2 $(SRC2) libft.a
+
+EXPR1 = "3 + 42 * (1 - 2 / (3 + 4) - 1 % 21) + 1"
+EXPR2 = " 1 + 1"
+EXPR3 = " -1 + 1"
+EXPR4 = " -1 + -1"
+EXPR5 = " -1 + +1"
+EXPR6 = " +1 + -1"
+EXPR7 = " -1 - -1 "
+EXPR8 = " -1 - -1"
+EXPR9 = " 3 - 2"
+EXPR10 = " 3 * 2"
+EXPR11 = " 3 / 2"
+EXPR12 = " 3 % 2"
+
+test: $(NAME)
+	# ---
+	echo $(EXPR1) | bc; ./eval_expr $(EXPR1)
+	echo $(EXPR2) | bc; ./eval_expr $(EXPR2)
+	echo $(EXPR3) | bc; ./eval_expr $(EXPR3)
+	echo $(EXPR4) | bc; ./eval_expr $(EXPR4)
+	@echo "--- this one should rise error on BC"
+	echo $(EXPR5) | bc; ./eval_expr $(EXPR5)
+	@echo "--- this one should rise error on BC"
+	echo $(EXPR6) | bc; ./eval_expr $(EXPR6)
+	echo $(EXPR7) | bc; ./eval_expr $(EXPR7)
+	echo $(EXPR8) | bc; ./eval_expr $(EXPR8)
+	echo $(EXPR9) | bc; ./eval_expr $(EXPR9)
+	echo $(EXPR10) | bc; ./eval_expr $(EXPR10)
+	echo $(EXPR11) | bc; ./eval_expr $(EXPR11)
+	echo $(EXPR12) | bc; ./eval_expr $(EXPR12)
+

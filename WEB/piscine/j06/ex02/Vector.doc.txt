@@ -1,0 +1,22 @@
+
+<- Vector ----------------------------------------------------------------------
+This is document instruction to class Vector
+
+In this class you enter two Vertex points one for origin and another for
+destination of the vector. The sintax is like that:
+
+new Vector (array('origin' => $VertexOrign, 'dest' => $VertexDest));
+
+if origin is not set, the point x = 0, y = 0, z = 0 and w = 1 is set as
+default.
+
+This Class proposes different methods to calculations with vectors
+they are: float magnitude as magnitude() , vector normalization as 
+normalize() , vector addition as add(Vector $rhs), vector substraction
+as sub(Vector $rhs), vector opposite as opposite(), scalar product as 
+ scalarProduct( $k ), float dot product as  dotProduct( Vector $rhs ),
+ cosinus of the angle two vectors as  cos( Vector $rhs ) and vector 
+ cross product crossProduct( Vector $rhs ).
+ 
+ I hope you can work with your vectors. Enjoy this class!! 
+---------------------------------------------------------------------- Vector ->

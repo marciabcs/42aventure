@@ -1,0 +1,73 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    READ.me                                            :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mouaret <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/02/01 11:37:45 by mouaret           #+#    #+#              #
+#    Updated: 2016/02/01 12:17:07 by mouaret          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Two main phases :
+
+1) Translator (infix to postfix expression)
+	Here we scan the input string, and translate INFIX notation to POSTFIX.
+	We use a PILE and a STACK.
+	- PILE is for storing the final postfix expression. 
+	  We push and pull from TOP of the pile.
+
+	- STACK is for managing operators during translation to postfix.
+	  push and pull operations are performed from TOP of the stack.
+
+	Main actions / functions :
+		int pile_push_operator(t_pile **pile, char operator);
+			return : 1=sucess, 0=error.
+
+		int pile_push_operand(t_pile **pile, int value);
+			return : 1=success, 0=error.
+
+		int pile_pop_operand(t_pile **pile);
+			return : 1=sucess, 0=error.
+
+		int pile_pop_operator(t_pile **pile);
+			return : 1=sucess, 0=error.
+
+		int pile_get_next(t_pile **pile, int *value, int *type);
+			return : 1=value 	=> in value we have the value.
+					 0=operator	=> in value we have the operator.
+
+
+2) Evaluator (postfix expression to result)
+	Here we execute (i.e. evaluate) the expression that is now in POSFIX mode.
+	We use the meta algorithm discussed earlier.
+	We use the PILE in different way : we push and pull from BOTTOM.
+
+
+Data storage involved :
+PILE: 
+	typedef struct 		s_pile
+	{
+		int				item;
+		char			type;
+		struct s_pile	*next;
+		struct s_pile	*prev;
+	} 					t_list;
+
+STACK:
+int		stack[4];
+			stack[0] = index of the top (where are we now);
+						0 if STACK is empty.
+			stack[1] to stack[3] = operators stacked.
+			stack is full at maximum 3rd operators !
+
+
+Files involved :
+	main.c 		: the main program (as reauested by the subject).
+	ft_utils.c	: basic functions (ft_putchar, ft_putnbr, ft_putstr, etc)
+	ft_pile.c	: functions to managing the PILE
+	ft_stack.c	: functions to manage the STACK.
+	ft_expr.c	: functions for basic operations on expressions and operators.
+	ft_scan.c	: input stream scanner operations.
+	ft_eval.c	: functions for the evaluation of POSTFIX expressions.

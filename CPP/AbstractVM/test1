@@ -1,0 +1,9 @@
+push int16(3455)
+push int8(65)
+;div
+print
+pop
+push double(234.23)
+sub
+dump
+exit

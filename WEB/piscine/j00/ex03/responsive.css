@@ -1,0 +1,40 @@
+		H1{text-align: center;
+            font-size: 4vw;}
+			BODY{background:white url(http://www.enemnafaixa.com.br/wp-content/uploads/2015/09/qu%C3%ADmica.jpg) ;
+            background-size: 100%}
+			TABLE{border-collapse: collapse;
+            width: 100%;
+            height: auto;
+            }
+      .element{
+				position: relative;
+            border:2px solid black;
+            height: 6vw;
+			}
+			.hidden-elem{
+				position: relative;
+                height: 5vw;
+			}
+			.elem-number{
+                position: relative;
+				text-align: left;
+				font-size: 0.8vw;
+                color: black;
+                font-weight: normal;
+                margin-top: 0vw;
+			}
+			.elem-weight{
+                position: relative;
+				text-align: right;
+				font-size: 0.8vw;
+                color:black;
+                font-weight: normal;
+                 margin-top: 0vw;
+			}
+      .elem-simbol{
+             position: relative;
+            text-align: center;
+            font-size: 1.5vw;
+            margin-top: 0vw;
+            font-weight: bold;
+      }

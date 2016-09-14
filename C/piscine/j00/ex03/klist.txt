@@ -1,0 +1,7 @@
+Credentials cache: API:16538
+        Principal: mcostaes@42.FR
+
+  Issued                Expires               Principal
+Nov 20 13:06:48 2015  Nov 20 23:06:48 2015  krbtgt/42.FR@42.FR
+Nov 20 13:44:42 2015  Nov 20 23:06:48 2015  host/vogsphere-frontend-normal-1.42.fr@42.FR
+Nov 20 13:56:28 2015  Nov 20 23:06:48 2015  ldap/ldap-proxy.42.fr@42.FR
